@@ -54,3 +54,8 @@
 @media(max-width:991px){.hero-visual{max-width:500px;margin:10px auto 0;height:400px}}
 @media(max-width:575px){.hero-visual{height:330px;margin-top:15px}.visual-chip{font-size:8px;padding:7px 10px}.visual-caption{font-size:6px;bottom:-2px}.chip-html{left:0}.chip-css{right:-2%}}
 @media(prefers-reduced-motion:reduce){.orbit-a,.orbit-b,.float-window,.float-card,.float-badge,.float-sparkles,.visual-chip{animation:none!important}}
+
+.marquee-track{width:max-content;min-width:0;justify-content:flex-start;gap:0;animation:marqueeLoop 26s linear infinite}
+.marquee-group{display:flex;align-items:center;justify-content:space-around;gap:45px;min-width:100vw;flex-shrink:0}
+@keyframes marqueeLoop{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
