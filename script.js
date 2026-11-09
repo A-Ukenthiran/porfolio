@@ -1,3 +1,25 @@
+// Light / dark theme toggle. Saved locally in this browser.
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const themeLabel = document.getElementById("themeLabel");
+const themeColorMeta = document.getElementById("themeColorMeta");
+const savedTheme = localStorage.getItem("ukenthiran-theme");
+const preferredTheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  const dark = theme === "dark";
+  themeIcon.className = dark ? "bi bi-sun" : "bi bi-moon-stars";
+  themeLabel.textContent = dark ? "Light mode" : "Dark mode";
+  themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  themeColorMeta.setAttribute("content", dark ? "#22223B" : "#F2E9E4");
+}
+applyTheme(savedTheme || preferredTheme);
+themeToggle.addEventListener("click", () => {
+  const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  localStorage.setItem("ukenthiran-theme", nextTheme);
+  applyTheme(nextTheme);
+});
+
 // ===== PERSONAL CONFIGURATION =====
 // Get a free access key at https://web3forms.com/ using a.ukenthiran@gmail.com
 const WEB3FORMS_ACCESS_KEY = "8a28fea6-5f25-41c6-9ca5-4fea79149cf4";
