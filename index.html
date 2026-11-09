@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Ukenthiran is a freelance frontend developer building responsive websites, landing pages and WordPress experiences.">
-  <meta name="theme-color" content="#f8f8f6">
+  <meta name="theme-color" content="#F2E9E4" id="themeColorMeta">
   <title>Ukenthiran — Freelance Frontend Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,11 @@
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+          <li class="nav-item d-flex align-items-center mt-3 mt-lg-0">
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+              <i class="bi bi-moon-stars" id="themeIcon"></i><span id="themeLabel">Dark mode</span>
+            </button>
+          </li>
           <li class="nav-item mt-3 mt-lg-0"><a class="btn btn-dark rounded-pill nav-cta" href="#contact">Let's talk <i class="bi bi-arrow-up-right ms-1"></i></a></li>
         </ul>
       </div>
@@ -48,16 +53,62 @@
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="hero-card reveal delay-3">
-              <div class="hero-card-top"><span>INDEPENDENT DEVELOPER</span><i class="bi bi-arrow-up-right"></i></div>
-              <div class="hero-orbit">
-                <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-                <div class="orbit-core">uk<span>.</span></div>
-                <span class="orbit-tag tag-html">HTML</span><span class="orbit-tag tag-css">CSS</span><span class="orbit-tag tag-js">JS</span><span class="orbit-tag tag-wp">WP</span>
-              </div>
-              <div class="hero-card-bottom"><span>DESIGN-MINDED</span><span>DEVELOPMENT-FOCUSED</span></div>
+            <div class="hero-visual reveal delay-3" aria-label="Animated illustration of a developer workspace">
+              <div class="visual-glow"></div>
+              <div class="visual-chip chip-html"><i class="bi bi-filetype-html"></i> HTML</div>
+              <div class="visual-chip chip-css"><i class="bi bi-filetype-css"></i> CSS</div>
+              <div class="visual-chip chip-js"><i class="bi bi-braces"></i> JavaScript</div>
+              <div class="visual-chip chip-react"><i class="bi bi-code-slash"></i> React</div>
+              <svg class="developer-illustration" viewBox="0 0 520 500" role="img" aria-labelledby="heroSvgTitle">
+                <title id="heroSvgTitle">Creative frontend developer workspace illustration</title>
+                <defs>
+                  <linearGradient id="deskGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9ADA7"/><stop offset="1" stop-color="#9A8C98"/></linearGradient>
+                  <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A4E69"/><stop offset="1" stop-color="#22223B"/></linearGradient>
+                  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+                </defs>
+                <ellipse cx="260" cy="430" rx="190" ry="25" fill="#22223B" opacity=".12" filter="url(#softShadow)"/>
+                <circle class="svg-orbit orbit-a" cx="265" cy="240" r="205" fill="none" stroke="#9A8C98" stroke-width="1.5" stroke-dasharray="5 10" opacity=".7"/>
+                <circle class="svg-orbit orbit-b" cx="265" cy="240" r="165" fill="none" stroke="#C9ADA7" stroke-width="1.5" stroke-dasharray="3 12" opacity=".8"/>
+                <g class="float-window">
+                  <rect x="94" y="85" width="332" height="235" rx="17" fill="#22223B" opacity=".12" transform="translate(0 9)"/>
+                  <rect x="88" y="76" width="332" height="235" rx="17" fill="url(#screenGrad)"/>
+                  <path d="M88 93 Q88 76 105 76 H403 Q420 76 420 93 V111 H88Z" fill="#4A4E69"/>
+                  <circle cx="108" cy="94" r="4" fill="#C9ADA7"/><circle cx="123" cy="94" r="4" fill="#9A8C98"/><circle cx="138" cy="94" r="4" fill="#F2E9E4" opacity=".8"/>
+                  <rect x="167" y="88" width="175" height="12" rx="6" fill="#F2E9E4" opacity=".13"/>
+                  <g font-family="monospace" font-size="12" fill="#F2E9E4">
+                    <text x="116" y="145" opacity=".55">01</text><text x="145" y="145" fill="#C9ADA7">const</text><text x="188" y="145"> developer = {</text>
+                    <text x="116" y="174" opacity=".55">02</text><text x="145" y="174" fill="#C9ADA7">  build:</text><text x="203" y="174" fill="#F2E9E4"> "beautiful websites",</text>
+                    <text x="116" y="203" opacity=".55">03</text><text x="145" y="203" fill="#C9ADA7">  focus:</text><text x="203" y="203" fill="#F2E9E4"> "people first",</text>
+                    <text x="116" y="232" opacity=".55">04</text><text x="145" y="232" fill="#C9ADA7">  stack:</text><text x="203" y="232" fill="#F2E9E4"> ["HTML", "CSS", "JS"]</text>
+                    <text x="116" y="261" opacity=".55">05</text><text x="145" y="261">};</text>
+                  </g>
+                  <rect x="115" y="278" width="118" height="5" rx="2.5" fill="#C9ADA7" opacity=".75"/>
+                  <rect x="240" y="278" width="65" height="5" rx="2.5" fill="#9A8C98" opacity=".8"/>
+                </g>
+                <g class="float-card">
+                  <rect x="24" y="280" width="150" height="105" rx="13" fill="#F2E9E4" stroke="#C9ADA7"/>
+                  <rect x="39" y="296" width="54" height="7" rx="3.5" fill="#9A8C98"/>
+                  <rect x="39" y="313" width="105" height="5" rx="2.5" fill="#4A4E69" opacity=".35"/>
+                  <rect x="39" y="326" width="82" height="5" rx="2.5" fill="#4A4E69" opacity=".25"/>
+                  <rect x="39" y="347" width="48" height="21" rx="10" fill="#4A4E69"/>
+                  <path d="M55 357h17m-5-5 5 5-5 5" stroke="#F2E9E4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <g class="float-badge">
+                  <rect x="350" y="300" width="132" height="82" rx="13" fill="#F2E9E4" stroke="#C9ADA7"/>
+                  <circle cx="374" cy="326" r="10" fill="#9A8C98" opacity=".35"/>
+                  <path d="M369 326l4 4 7-9" stroke="#4A4E69" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="393" y="321" width="70" height="6" rx="3" fill="#4A4E69" opacity=".75"/>
+                  <rect x="369" y="347" width="94" height="5" rx="2.5" fill="#9A8C98" opacity=".5"/>
+                  <rect x="369" y="360" width="65" height="5" rx="2.5" fill="#9A8C98" opacity=".35"/>
+                </g>
+                <g class="float-sparkles" fill="#9A8C98"><path d="M57 115l5 13 13 5-13 5-5 13-5-13-13-5 13-5z"/><path d="M447 170l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#C9ADA7"/><circle cx="458" cy="250" r="5" fill="#4A4E69"/><circle cx="72" cy="220" r="4" fill="#C9ADA7"/></g>
+                <path d="M188 405h145l22 18H166z" fill="url(#deskGrad)" opacity=".9"/>
+                <rect x="227" y="423" width="66" height="8" rx="4" fill="#4A4E69" opacity=".65"/>
+              </svg>
+              <div class="visual-caption"><span class="caption-dot"></span> DESIGNING · DEVELOPING · DELIVERING</div>
             </div>
           </div>
+        </div>
         </div>
         <div class="hero-footer reveal delay-3"><span>BASED IN INDIA · WORKING WORLDWIDE</span><span>SCROLL TO EXPLORE <i class="bi bi-arrow-down"></i></span></div>
       </div>
